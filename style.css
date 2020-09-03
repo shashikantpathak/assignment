@@ -1,5 +1,14 @@
 .stationList {
     position: relative;
-    left: 50%;
+    left: 85%;
     top: -80px;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bikeclass {
+    display: flex;
 }
