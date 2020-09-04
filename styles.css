@@ -1,160 +1,122 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
-html {
-    background-color: white;
-}
-
 body {
-    color: white;
-    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: 0;
-    padding: 1rem;
-    font-feature-settings: "liga" on;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
 }
-
 .service,
 .operator {
-    text-align: center;
-    color: black;
+  text-align: center;
+  color: black;
 }
-
 .service {
-    font-size: 25px;
+  font-size: 25px;
 }
-
 .operator {
-    font-size: 14px;
-    padding: 5px;
+  font-size: 14px;
+  padding: 5px;
 }
-
-img {
-    height: auto;
-    max-width: 100%;
-    vertical-align: middle;
+.bike_info {
+  background-color: white;
+  border: 1px solid #cccccc;
+  padding: 0.5rem;
+  text-transform: lowercase;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
 }
-
-.btn {
-    background-color: white;
-    border: 1px solid #cccccc;
-    color: #696969;
-    padding: 0.5rem;
-    text-transform: lowercase;
+.list_station {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
-.btn--block {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    font-weight: 500;
-    color: black;
+.items {
+  display: flex;
+  padding: 1rem;
+  width: 100%;
 }
-
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.cards__item {
-    display: flex;
-    padding: 1rem;
-    width: 100%;
-}
-
 @media (min-width: 40rem) {
-    .cards__item {
-        width: 50%;
-    }
+  .items {
+    width: 50%;
+  }
 }
-
 @media (min-width: 56rem) {
-    .cards__item {
-        width: 33.3333%;
-    }
+  .items {
+    width: 33.3333%;
+  }
 }
-
-.card {
-    background-color: white;
-    border-radius: 0.25rem;
-    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    width: 100%;
+.station_card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
 }
-
-.card:hover .card__image {
-    filter: hue-rotate(180deg);
+.station_card:hover .image {
+  filter: hue-rotate(180deg);
 }
-
-.card__content {
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: column;
-    padding: 1rem;
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
 }
-
-.card__image {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
-    filter: contrast(70%);
-    overflow: hidden;
-    position: relative;
-    transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+.image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  filter: contrast(70%);
+  overflow: hidden;
+  position: relative;
+  transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  filter: invert(1);
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRONl_mBsT0wQs7Z3BqFKjRBaEmM30GFixJOA&usqp=CAU);
 }
-
-.card__image::before {
-    content: "";
-    display: block;
-    padding-top: 56.25%;
+.image::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
 }
-
 @media (min-width: 40rem) {
-    .card__image::before {
-        padding-top: 66.6%;
-    }
+  .image::before {
+    padding-top: 66.6%;
+  }
 }
-
-.card__image--fence {
-    filter: invert(1);
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRONl_mBsT0wQs7Z3BqFKjRBaEmM30GFixJOA&usqp=CAU);
+.name {
+  color: black;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
-
-.card__title {
-    color: black;
-    font-size: 1.25rem;
-    letter-spacing: 2px;
-    text-transform: lowercase;
+.address {
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  color: black;
 }
-
-.card__text {
-    flex: 1 1 auto;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    margin-bottom: 1.25rem;
-    color: black;
-}
-
 .load_more {
-    text-align: center;
-    color: black;
-    font-size: 14px;
-    padding: 5px;
+  text-align: center;
+  color: black;
+  font-size: 14px;
+  padding: 5px;
 }
-
 .load_button {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }

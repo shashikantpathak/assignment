@@ -4,62 +4,66 @@ const systemInformationUrl = "https://gbfs.urbansharing.com/oslobysykkel.no/syst
 
 const header = { header: { "Client-Identifier": "mittfirma-reiseplanlegger" } }
 
+var result1, result2, newList, start, end, checkApiStatus
+start = 0
+end = 6
+checkLoad = false
 
-var resultJso = []
-var resultJso2 = []
-var i = 0
-var arr3
+
 const stationList = () => fetch(stationListUrl, header)
-    .then((result) => result.json()
-        .then((resultJson => {
-            resultJso = resultJson.data.stations
+    .then((response) => response.json()
+        .then((result => {
+            result1 = result.data.stations
             fetch(stationStatusUrl, header)
-                .then(result2 => result2.json()
-                    .then((resultJson2) => {
-                        resultJso2 = resultJson2.data.stations
-                        arr3 = resultJso.map((item, i) => Object.assign({}, item, resultJso2[i]));
-                        console.log(arr3);
-                        arr3.slice(i, i + 6).map((item) => {
-                            document.querySelector(".cards").innerHTML += `
-                            <li class="cards__item">
-                                <div class="card">
-                                    <div class="card__image card__image--fence"></div>
-                                    <div class="card__content">
-                                        <div class="card__title">${item.name}</div>
-                                        <p class="card__text">${item.address}</p>
-                                        <button class="btn btn--block">
+                .then(response => response.json()
+                    .then((result) => {
+                        result2 = result.data.stations
+                        newList = result1.map((item, i) => Object.assign({}, item, result2[i]));
+                        newList.slice(start, start + end).map((item) => {
+                            document.querySelector(".list_station").innerHTML += `
+                            <li class="items">
+                                <div class="station_card">
+                                    <div class="image"></div>
+                                    <div class="content">
+                                        <div class="name">${item.name}</div>
+                                        <p class="address">${item.address}</p>
+                                        <div class="bike_info">
                                         <div>Available-${item.num_bikes_available }</div>
                                         <div> Free Space-${item.num_docks_available}</div>
-                                        </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </li>
-                          `
-
+                            </li>`
                         })
 
+                        checkLoad = true
                     }))
-        })))
-
-const systemInformation = fetch(systemInformationUrl, header)
-    .then(res => res.json())
-    .then(resJson => {
-        console.log(resJson.data)
-        document.querySelector(".service").textContent = resJson.data.name
-        document.querySelector(".operator").textContent = resJson.data.operator + "  " + resJson.data.phone_number
-
+        }))).catch((err) => {
+        alert("Api Failed to Load")
 
     })
 
+const systemInformation = fetch(systemInformationUrl, header)
+    .then(response => response.json())
+    .then(result => {
+        document.querySelector(".service").textContent = result.data.name
+        document.querySelector(".operator").textContent = result.data.operator + "  " + result.data.phone_number
+    }).catch(err => {
+        alert('Api Failed to Load')
+    })
+
+
 document.querySelector(".load_button").addEventListener('click', function() {
-    i += 6
-    if (i <= arr3.length - 6) {
-        stationList()
-        console.log(i)
+    if (checkLoad) {
+        start += end
+        if (start < newList.length - end) {
+            stationList()
+        } else {
+            document.querySelector(".load_button").style.display = 'None'
+        }
     } else {
         document.querySelector(".load_button").style.display = 'None'
     }
-
 })
 
 stationList()
