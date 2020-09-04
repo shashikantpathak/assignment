@@ -1,122 +1,141 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 body {
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0;
-  padding: 1rem;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0;
+    padding: 1rem;
 }
+
 .service,
 .operator {
-  text-align: center;
-  color: black;
+    text-align: center;
+    color: black;
 }
+
 .service {
-  font-size: 25px;
+    font-size: 25px;
 }
+
 .operator {
-  font-size: 14px;
-  padding: 5px;
+    font-size: 14px;
+    padding: 5px;
 }
+
 .bike_info {
-  background-color: white;
-  border: 1px solid #cccccc;
-  padding: 0.5rem;
-  text-transform: lowercase;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  font-weight: 500;
-  color: black;
+    background-color: white;
+    border: 1px solid #cccccc;
+    padding: 0.5rem;
+    text-transform: lowercase;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
 }
+
 .list_station {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
+
 .items {
-  display: flex;
-  padding: 1rem;
-  width: 100%;
+    display: flex;
+    padding: 1rem;
+    width: 100%;
 }
+
 @media (min-width: 40rem) {
-  .items {
-    width: 50%;
-  }
+    .items {
+        width: 50%;
+    }
 }
+
 @media (min-width: 56rem) {
-  .items {
-    width: 33.3333%;
-  }
+    .items {
+        width: 33.3333%;
+    }
 }
+
 .station_card {
-  background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  width: 100%;
+    background-color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
 }
+
 .station_card:hover .image {
-  filter: hue-rotate(180deg);
+    filter: hue-rotate(180deg);
 }
+
 .content {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  padding: 1rem;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 1rem;
 }
+
 .image {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-  filter: contrast(70%);
-  overflow: hidden;
-  position: relative;
-  transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
-  filter: invert(1);
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRONl_mBsT0wQs7Z3BqFKjRBaEmM30GFixJOA&usqp=CAU);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    filter: contrast(70%);
+    overflow: hidden;
+    position: relative;
+    transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+    filter: invert(1);
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRONl_mBsT0wQs7Z3BqFKjRBaEmM30GFixJOA&usqp=CAU);
 }
+
 .image::before {
-  content: "";
-  display: block;
-  padding-top: 56.25%;
+    content: "";
+    display: block;
+    padding-top: 56.25%;
 }
+
 @media (min-width: 40rem) {
-  .image::before {
-    padding-top: 66.6%;
-  }
+    .image::before {
+        padding-top: 66.6%;
+    }
 }
+
 .name {
-  color: black;
-  font-size: 1.25rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+    color: black;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
+
 .address {
-  flex: 1 1 auto;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
-  color: black;
+    flex: 1 1 auto;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    color: black;
 }
+
 .load_more {
-  text-align: center;
-  color: black;
-  font-size: 14px;
-  padding: 5px;
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    padding: 5px;
 }
+
 .load_button {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
