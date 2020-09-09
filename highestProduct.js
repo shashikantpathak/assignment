@@ -2,14 +2,13 @@ function highestProduct(list){
 	list.sort((a,b)=>{
 		return b-a})
     var product
-  console.log(list)
   	if(list.length>2){
        if((list[2]<0 && list[0]>0 && list[1]>0)|| (list[1]<0 && list[0]>0))
          product=list[1]*list[2]*list[3]
        else
          product=list[0]*list[1]*list[2]
     }else{
-        return "hello"
+        return "No. of elements should not be less than 3"
     }
    return product
 }
